@@ -22,12 +22,29 @@ public class assignment4 {
 
 			System.out.println("Enter the symbols for the sudoku game:");
 			String symb=scan.next();
-			scan.close();
 			if(symb.length()!=board_size)
 				System.out.println("The number of symbols entered does not match the grid size");
+			
+			else
+			{
 			int k=0;
 		    for(char s:symb.toCharArray())
 				symbols[k++] = s;
+		    
+		    for(int l=0;l<board_size;l++)
+		    {
+		    	for(int m=l+1;m<board_size;m++)
+		    	{
+		    		if(symbols[l]!='.')
+		    		{
+		    			if(symbols[l]==symbols[m])
+		    			{
+		    				System.out.println("There are duplicate elements in the array");
+		    			}
+		    		}
+		    	}
+		    }
+			
 
 			System.out.println("Enter the incomplete sudoke:");
 		
@@ -39,13 +56,16 @@ public class assignment4 {
 					i++;
 			}
 			
+			
 			sudoku sku = new sudoku();
 			if (sku.completesudoku(sudoku, symbols, sudoku.length)) {
 				System.out.println("Solved Sudoku:");
 				sku.print(sudoku, board_size);
 
-			} else {
+			}
+			else {
 				System.out.println("No solution");
+			}
 			}
 
 		} catch (ArrayIndexOutOfBoundsException e1) {
