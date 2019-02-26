@@ -22,7 +22,6 @@ public class assignment4 {
 
 			System.out.println("Enter the symbols for the sudoku game:");
 			String symb=scan.next();
-			scan.close();
 			if(symb.length()!=board_size)
 				System.out.println("The number of symbols entered does not match the grid size");
 			int k=0;
